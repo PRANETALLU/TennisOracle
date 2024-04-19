@@ -1,0 +1,12 @@
+1) NumPy
+2) Pandas
+3) Scikit-Learn
+	- train_test_split (model_selection) 
+	- KFold (model_selection)
+	- LogisticRegression (linear_model)
+	- accuracy_score (metrics)
+	- OneHotEncoder (preprocessing)
+	- StandardScaler (preprocessing) 
+	- shuffle (utils) 
+	- cross_val_score (model_selection) 
+4) Beautiful Soup
