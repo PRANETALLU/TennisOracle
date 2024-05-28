@@ -15,6 +15,7 @@ const DatabaseSearch = () => {
     const [rankRange, setRankRange] = useState("");
     const [minHeight, setMinHeight] = useState("");
     const [maxHeight, setMaxHeight] = useState("");
+    const [numMatch, setNumMatch] = useState(""); 
 
     const [playerNameArray, setPlayerNameArray] = useState([])
     const [playerHandArray, setPlayerHandArray] = useState([])
@@ -131,6 +132,11 @@ const DatabaseSearch = () => {
                         <Picker selectedValue={rankRange} onValueChange={(itemValue, itemIndex) => setRankRange(itemValue)}>
                             {["Select Rank", "0 - 100", "101 - 500", "501 - 1000"].map((rankR) => (
                                 <Picker.Item label={rankR} value={rankR} />
+                            ))}
+                        </Picker>
+                        <Picker selectedValue={numMatch} onValueChange={(itemValue, itemIndex) => setNumMatch(itemValue)}>
+                            {["Select Number of Matches", "0 - 100", "101 - 200", "201 - 300", "301 - 400"].map((numM) => (
+                                <Picker.Item label={numM} value={numM} />
                             ))}
                         </Picker>
                         <Button title='Search' onPress={getDescriptions} />

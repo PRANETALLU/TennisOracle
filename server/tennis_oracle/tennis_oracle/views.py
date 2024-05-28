@@ -265,6 +265,7 @@ def search_Filter(request):
         rankRange = body_params.get("rankRange")
         minHeight = body_params.get("minHeight")
         maxHeight = body_params.get("maxHeight")
+        matchRange = body_params.get("matchRange")
         
         players = TennisPlayer.objects.all()
         
@@ -289,6 +290,15 @@ def search_Filter(request):
                 players = players.filter(rank__range=(101, 500))
             if rankRange == "501 - 1000":
                 players = players.filter(rank__range=(501, 1000))
+        if matchRange and matchRange != "Select Number of Matches":
+            if matchRange == "0 - 100":
+                players = players.filter(no_of_matches__range=(0, 100))
+            if matchRange == "101 - 200":
+                players = players.filter(no_of_matches__range=(101, 200))
+            if matchRange == "201 - 300":
+                players = players.filter(no_of_matches__range=(201, 300))
+            if matchRange == "301 - 400":
+                players = players.filter(no_of_matches__range=(301, 400))
         
         return JsonResponse({"players": list(players.values())})
     else:
